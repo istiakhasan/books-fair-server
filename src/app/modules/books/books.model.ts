@@ -1,6 +1,6 @@
 import { Schema, model } from 'mongoose'
 import { BooksModal, IBooks } from './book.interface'
-const adminSchema = new Schema<IBooks>(
+const bookSchema = new Schema<IBooks>(
   {
     title: {
       type: String,
@@ -21,10 +21,19 @@ const adminSchema = new Schema<IBooks>(
     },
     review: {
       type: Number,
+      default:0
     },
     email: {
       type: String,
       required: true,
+    },
+    image:{
+        type:String,
+        required:true
+    },
+    description:{
+        type:String,
+        required:true
     }
   },
   {
@@ -34,4 +43,4 @@ const adminSchema = new Schema<IBooks>(
     },
   }
 )
-export const Book = model<IBooks, BooksModal>('Admin', adminSchema)
+export const Book = model<IBooks, BooksModal>('Books', bookSchema)

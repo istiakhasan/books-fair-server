@@ -1,6 +1,8 @@
 import express from 'express'
+import { booksController } from './books.controller'
 const bookRouter=express.Router()
 
-bookRouter.get('/',(req,res)=>res.send("hellow"))
+bookRouter.post('/',booksController.createBook)
+bookRouter.get('/',booksController.getAllBooks)
 
 export default bookRouter

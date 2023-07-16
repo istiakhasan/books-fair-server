@@ -26,7 +26,7 @@ const updateToWishList = catchAsync(async (req: Request, res: Response) => {
   });
 });
 const getToWishList = catchAsync(async (req: Request, res: Response) => {
-  const result = await wishlistService.getToWishList(req.body.data);
+  const result = await wishlistService.getToWishList(req.query);
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,

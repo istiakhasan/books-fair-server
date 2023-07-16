@@ -80,7 +80,7 @@ const updateBook = async (
   if (!isExist) {
     throw new ApiError(httpStatus.NOT_FOUND, "Book not found !");
   }
-  console.log(payload);
+
   const result = await Book.findOneAndUpdate({ _id: id }, payload, {
     new: true,
   });

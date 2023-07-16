@@ -13,7 +13,7 @@ const wishListSchema = new Schema<IList>(
     },
     book: {
       type: Schema.Types.ObjectId,
-      ref: "Book",
+      ref: "Books",
       required: true,
     },
   },

@@ -17,8 +17,16 @@ const addToWishList = catchAsync(async (req: Request, res: Response) => {
   });
 });
 const updateToWishList = catchAsync(async (req: Request, res: Response) => {
-  
   const result = await wishlistService.updateToWishList(req.body.data);
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: "Add to wish list successfully",
+    data: result,
+  });
+});
+const getToWishList = catchAsync(async (req: Request, res: Response) => {
+  const result = await wishlistService.getToWishList(req.body.data);
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
@@ -30,5 +38,6 @@ const updateToWishList = catchAsync(async (req: Request, res: Response) => {
 
 export const wishListController = {
   addToWishList,
-  updateToWishList
+  updateToWishList,
+  getToWishList
 };
